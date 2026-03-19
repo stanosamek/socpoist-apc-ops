@@ -4,7 +4,7 @@
 - Operation name: <name>
 - Type: <upgrade | installation | maintenance>
 - Category: <ocp | component | application | infra>
-- Environment: <dev | staging | production>
+- Environment: <dev | test | production>
 - Planned date: <YYYY-MM-DD>
 
 ---
