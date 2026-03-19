@@ -24,7 +24,7 @@ Operácia je reprezentovaná jedným folderom:
 #### 3. Vytvor nový folder zo šablóny:
 
 ```bash
-cp -r templates/operation operations/2026-03-<name-of-operation>
+cp -r templates/operations operations/2026-03-<name-of-operation>
 ```
 
 #### 4. Vyplnenie metadát operácie
