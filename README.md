@@ -31,10 +31,9 @@ cp -r templates/operation operations/2026-03-<name-of-operation>
 #### 5. Príprava dokumentácie plan.md, changelog.md, checklist.md
 #### 6. Review PR spolu so spustením automatizácie (kontrola vygenerovaného emailu, atď)
 #### 7. Merge PR
-#### 8. Vykonanie inštalácie/upgrade
-#### 9. Vygenerovať a odoslať po inštalácií Post report
-
-
+#### 8. Github actions vygeneruje email notifikáciu zákazníkovi
+#### 9. Vykonanie inštalácie/upgrade
+#### 10. Vygenerovať a odoslať po inštalácií Post report
 
 # 📌 Pravidlá
 
@@ -50,28 +49,41 @@ interný checklist sa nikdy neposiela klientovi
 ```mermaid
 flowchart TD
 
-A[Vytvorenie novej operácie<br/>templates → operations/] --> B[Vyplnenie metadata.yaml]
+A[Vytvorenie Jira Epicu] --> B[Vytvorenie branch<br/>s číslom Jira Epicu]
 
-B --> C[Príprava dokumentácie<br/>plan.md / changelog.md / checklist.md]
+B --> C[Vytvorenie operácie zo šablóny]
 
-C --> D[Vytvorenie / prepojenie Jira ticketu]
+C --> C1[cp -r templates/operation<br/>operations/2026-03-<name>]
 
-D --> E[Pull Request review]
+C1 --> D[Vyplnenie metadát operácie<br/>metadata.yaml]
 
-E --> F{Schválené?}
+D --> E[Príprava dokumentácie]
 
-F -- Nie --> C
+E --> E1[plan.md]
+E --> E2[changelog.md]
+E --> E3[checklist.md]
 
-F -- Áno --> G[Vykonanie operácie<br/>manuálne alebo CI/CD]
+E1 --> F[Pull Request + Review]
 
-G --> H[Aktualizácia checklist.md]
+E2 --> F
+E3 --> F
 
-H --> I[Vyplnenie post-report.md]
+F --> G{Schválené?}
 
-I --> J[GitHub Actions<br/>generovanie emailu]
+G -- Nie --> E
 
-J --> K[Klientská komunikácia<br/>email plan / report]
+G -- Áno --> H[Merge PR]
 
-K --> L[Uzavretie Jira ticketu]
+H --> I[GitHub Actions<br/>vygeneruje email pre zákazníka]
 
-L --> M[Archivácia operácie]
+I --> J[Notifikácia zákazníkovi<br/>- plán operácie]
+
+J --> K[Vykonanie inštalácie / upgrade]
+
+K --> L[Vytvorenie post-report.md]
+
+L --> M[GitHub Actions<br/>vygeneruje post-report email]
+
+M --> N[Odoslanie post-report zákazníkovi]
+
+N --> O[Uzavretie Jira Epicu]
