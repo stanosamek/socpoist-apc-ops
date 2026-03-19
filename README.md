@@ -37,11 +37,12 @@ cp -r templates/operation operations/2026-03-<name-of-operation>
 
 # 📌 Pravidlá
 
-1 operácia = 1 folder
-1 operácia = 1 Jira ticket
-metadata.yaml je povinný
-changelog.md je zdroj pre klientsku komunikáciu
-interný checklist sa nikdy neposiela klientovi
+- 1 operácia = 1 folder
+- 1 operácia = 1 Jira ticket
+- metadata.yaml je povinný
+- changelog.md je zdroj pre klientsku komunikáciu
+- interný checklist sa nikdy neposiela klientovi
+
 
 
 # 🔁 Proces operácie v cluster-operations repozitári
