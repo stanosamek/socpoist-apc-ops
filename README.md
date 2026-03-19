@@ -19,22 +19,24 @@ Operácia je reprezentovaná jedným folderom:
 
 # 🧭 Postup krok za krokom
 
-## 1. Vytvorenie Jira epicu
-## 2. Vytvorenie branch s cislom Jira epicu
-## 3. Vytvor nový folder zo šablóny:
+#### 1. Vytvorenie Jira epicu
+#### 2. Vytvorenie branch s cislom Jira epicu
+#### 3. Vytvor nový folder zo šablóny:
 
 ```bash
 cp -r templates/operation operations/2026-03-<name-of-operation>
 ```
 
-## 4. Vyplnenie metadát operácie
-## 5. Príprava dokumentácie plan.md, changelog.md, checklist.md
-## 6. Review PR spolu so spustením automatizácie (kontrola vygenerovaného emailu, atď)
-## 7. Merge PR
-## 8. Vykonanie inštalácie/upgrade
-## 9. Vygenerovať a odoslať po inštalácií Post report
+#### 4. Vyplnenie metadát operácie
+#### 5. Príprava dokumentácie plan.md, changelog.md, checklist.md
+#### 6. Review PR spolu so spustením automatizácie (kontrola vygenerovaného emailu, atď)
+#### 7. Merge PR
+#### 8. Vykonanie inštalácie/upgrade
+#### 9. Vygenerovať a odoslať po inštalácií Post report
 
-📌 Pravidlá
+
+
+# 📌 Pravidlá
 
 1 operácia = 1 folder
 1 operácia = 1 Jira ticket
