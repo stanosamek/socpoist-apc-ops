@@ -28,7 +28,7 @@ cp -r templates/operation operations/2026-03-<name-of-operation>
 ```
 
 #### 4. Vyplnenie metadát operácie
-#### 5. Príprava dokumentácie plan.md, changelog.md, checklist.md
+#### 5. Príprava dokumentácie changelog.md, checklist.md
 #### 6. Review PR spolu so spustením automatizácie (kontrola vygenerovaného emailu, atď)
 #### 7. Merge PR
 #### 8. Github actions vygeneruje email notifikáciu zákazníkovi
@@ -50,41 +50,44 @@ cp -r templates/operation operations/2026-03-<name-of-operation>
 ```mermaid
 flowchart TD
 
-A[Vytvorenie Jira Epicu] --> B[Vytvorenie branch<br/>s číslom Jira Epicu]
+A[Vytvorenie Jira Epicu]
 
-B --> C[Vytvorenie operácie zo šablóny]
+B[Vytvorenie branch<br/>s číslom Jira Epicu]
 
-C --> C1[cp -r templates/operation<br/>operations/2026-03-<name>]
+C[Vytvorenie operácie zo šablóny]
+C1[cp -r templates/operation<br/>operations/2026-03-<name>]
 
-C1 --> D[Vyplnenie metadát operácie<br/>metadata.yaml]
+D[Vyplnenie metadát operácie<br/>metadata.yaml]
 
-D --> E[Príprava dokumentácie]
+E[Príprava dokumentácie]
 
-E --> E1[plan.md]
-E --> E2[changelog.md]
-E --> E3[checklist.md]
+E1[changelog.md]
+E2[checklist.md]
 
-E1 --> F[Pull Request + Review]
+F[Pull Request + Review<br/>+ spustenie automatizácie]
 
-E2 --> F
-E3 --> F
+G{Schválené?}
 
-F --> G{Schválené?}
+H[Merge PR]
+
+I[GitHub Actions<br/>vygeneruje email pre zákazníka]
+
+J[Odoslanie notifikácie zákazníkovi]
+
+K[Vykonanie inštalácie / upgrade]
+
+L[Vytvorenie post-report.md]
+
+M[GitHub Actions<br/>vygeneruje post-report email]
+
+N[Odoslanie post-report zákazníkovi]
+
+O[Uzavretie Jira Epicu]
+
+A --> B --> C --> C1 --> D --> E --> E1 --> F
+E --> E2 --> F
+
+F --> G
 
 G -- Nie --> E
-
-G -- Áno --> H[Merge PR]
-
-H --> I[GitHub Actions<br/>vygeneruje email pre zákazníka]
-
-I --> J[Notifikácia zákazníkovi<br/>- plán operácie]
-
-J --> K[Vykonanie inštalácie / upgrade]
-
-K --> L[Vytvorenie post-report.md]
-
-L --> M[GitHub Actions<br/>vygeneruje post-report email]
-
-M --> N[Odoslanie post-report zákazníkovi]
-
-N --> O[Uzavretie Jira Epicu]
+G -- Áno --> H --> I --> J --> K --> L --> M --> N --> O
