@@ -1,0 +1,12 @@
+#here are metadata for automation like closing Jira tickets, sending email, etc.
+
+type: upgrade            # upgrade | installation | maintenance
+category: ocp            # ocp | component | application | infra
+name: openshift
+from_version: 4.14
+to_version: 4.15
+
+date: 2026-03-25
+environment: production
+
+notify_client: true
